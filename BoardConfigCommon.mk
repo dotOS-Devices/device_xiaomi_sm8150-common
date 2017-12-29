@@ -69,6 +69,9 @@ TARGET_FS_CONFIG_GEN := $(COMMON_PATH)/config.fs
 # FM
 BOARD_HAVE_QCOM_FM := true
 
+# HWUI
+HWUI_COMPILE_FOR_PERF := true
+
 # HIDL
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := $(COMMON_PATH)/framework_compatibility_matrix.xml
 DEVICE_MATRIX_FILE += $(COMMON_PATH)/compatibility_matrix.xml
