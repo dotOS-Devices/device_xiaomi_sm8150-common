@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import androidx.preference.PreferenceManager;
 import android.provider.Settings;
 
+import com.xiaomi.parts.dirac.DiracUtils;
 import com.xiaomi.parts.kcal.Utils;
 import com.xiaomi.parts.ambient.SensorsDozeService;
 import com.xiaomi.parts.thermal.ThermalUtils;
@@ -48,6 +49,9 @@ public class BootReceiver extends BroadcastReceiver implements Utils {
 
         //Thermal
         ThermalUtils.startService(context);
+
+        //Dirac
+        DiracUtils.initialize(context);
 
         boolean enabled = sharedPrefs.getBoolean(DeviceSettings.PREF_KEY_FPS_INFO, false);
         if (enabled) {
