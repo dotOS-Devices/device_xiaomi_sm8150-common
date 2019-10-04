@@ -46,13 +46,6 @@ public class DiracSound extends AudioEffect {
         checkStatus(setParameter(DIRACSOUND_PARAM_MUSIC, enable));
     }
 
-    public int getHeadsetType() throws IllegalStateException,
-            IllegalArgumentException, UnsupportedOperationException {
-        int[] value = new int[1];
-        checkStatus(getParameter(DIRACSOUND_PARAM_HEADSET_TYPE, value));
-        return value[0];
-    }
-
     public void setHeadsetType(int type) throws IllegalStateException,
             IllegalArgumentException, UnsupportedOperationException {
         checkStatus(setParameter(DIRACSOUND_PARAM_HEADSET_TYPE, type));
@@ -64,13 +57,4 @@ public class DiracSound extends AudioEffect {
                 String.valueOf(level).getBytes()));
     }
 
-    public float getLevel(int band) throws IllegalStateException,
-            IllegalArgumentException, UnsupportedOperationException {
-        int[] param = new int[2];
-        byte[] value = new byte[10];
-        param[0] = DIRACSOUND_PARAM_EQ_LEVEL;
-        param[1] = band;
-        checkStatus(getParameter(param, value));
-        return new Float(new String(value)).floatValue();
-    }
 }
