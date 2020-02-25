@@ -213,6 +213,9 @@ debug.gralloc.enable_fb_ubwc=1
 # OTG
 persist.sys.oem.otg_support=true
 
+# Perf
+ro.vendor.extension_library=libqti-perfd-client.so
+
 # PASR
 vendor.power.pasr.enabled=false
 
