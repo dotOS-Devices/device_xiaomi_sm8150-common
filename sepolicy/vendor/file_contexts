@@ -77,6 +77,19 @@
 # SSR
 /sys/devices(/platform)?/soc/[a-z0-9\.:]+,[a-z0-9\-\_]+/subsys[0-9]+/name         u:object_r:sysfs_ssr:s0
 
+# Kcal
+/sys/devices/platform/kcal_ctrl.0/kcal_enable                        u:object_r:sysfs_dm:s0
+/sys/devices/platform/kcal_ctrl.0/kcal                               u:object_r:sysfs_dm:s0
+/sys/devices/platform/kcal_ctrl.0/kcal_sat                           u:object_r:sysfs_dm:s0
+/sys/devices/platform/kcal_ctrl.0/kcal_val                           u:object_r:sysfs_dm:s0
+/sys/devices/platform/kcal_ctrl.0/kcal_cont                          u:object_r:sysfs_dm:s0
+/sys/devices/platform/kcal_ctrl.0(/.*)?                              u:object_r:kcal_dev:s0
+/sys/bus/platform/drivers/kcal_ctrl(/.*)?                            u:object_r:kcal_dev:s0
+
+# FPS Info
+/sys/devices/platform/soc/ae00000.qcom,mdss_mdp/drm/card0/sde-crtc-0/measured_fps u:object_r:sysfs_fps:s0
+/sys/class/drm/sde-crtc-0/measured_fps                              u:object_r:sysfs_fps:s0
+
 # Thermal
 /vendor/bin/mi_thermald                                                 u:object_r:mi_thermald_exec:s0
 /data/vendor/thermal(/.*)?                                              u:object_r:thermal_data_file:s0

@@ -312,6 +312,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/public.libraries.txt:$(TARGET_COPY_OUT_VENDOR)/etc/public.libraries.txt
 
+# PocoParts
+PRODUCT_PACKAGES += \
+    PocoParts
+
 # QMI
 PRODUCT_PACKAGES += \
     libjson \
@@ -342,6 +346,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     fstab.qcom \
     init.nfc.rc \
+    init.pocoparts.rc \
     init.qcom.rc \
     init.qcom.usb.rc \
     init.recovery.qcom.rc \
