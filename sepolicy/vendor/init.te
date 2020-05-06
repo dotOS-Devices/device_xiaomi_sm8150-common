@@ -15,3 +15,4 @@ allow init proc_last_kmsg:file r_file_perms;
 allow init proc_last_kmsg:file { setattr };
 allow init iorapd_data_file:file getattr;
 allow init hal_fingerprint_default:process { ptrace };
+allow init adsprpcd_file:file mounton;
