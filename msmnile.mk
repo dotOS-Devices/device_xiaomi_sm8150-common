@@ -330,6 +330,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     vendor.qti.hardware.perf@2.2.vendor
 
+# Perfd (dummy)
+PRODUCT_PACKAGES += \
+    libqti-perfd-client
+
 #Power Hal
 PRODUCT_PACKAGES += \
     android.hardware.power-service.xiaomi-libperfmgr \
