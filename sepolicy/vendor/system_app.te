@@ -22,3 +22,9 @@ allow system_app sysfs_zram:dir search;
 allow system_app sysfs_zram:file r_file_perms;
 allow system_app sysfs_thermal:file { write };
 allow system_app sysfs_msm_subsys:dir { search };
+
+# Allow xiaomi_settings to find hal_touchfeature_xiaomi_hwservice
+allow system_app hal_touchfeature_hwservice:hwservice_manager { find };
+
+# Allow binder communication with hal_touchfeature_xiaomi_default
+binder_call(system_app, hal_touchfeature_default)
