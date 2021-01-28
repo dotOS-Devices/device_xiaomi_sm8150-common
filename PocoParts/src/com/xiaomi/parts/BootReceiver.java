@@ -11,6 +11,8 @@ import com.xiaomi.parts.dirac.DiracUtils;
 import com.xiaomi.parts.kcal.Utils;
 import com.xiaomi.parts.ambient.SensorsDozeService;
 import com.xiaomi.parts.thermal.ThermalUtils;
+import com.xiaomi.parts.soundcontrol.SoundControlSettings;
+import com.xiaomi.parts.soundcontrol.SoundControlFileUtils;
 
 public class BootReceiver extends BroadcastReceiver implements Utils {
 
@@ -42,6 +44,14 @@ public class BootReceiver extends BroadcastReceiver implements Utils {
                     PREF_CONTRAST, CONTRAST_DEFAULT) + CONTRAST_OFFSET);
             FileUtils.setValue(KCAL_HUE, Settings.Secure.getInt(context.getContentResolver(),
                     PREF_HUE, HUE_DEFAULT));
+
+        int gain = Settings.Secure.getInt(context.getContentResolver(),
+                    SoundControlSettings.PREF_HEADPHONE_GAIN, 4);
+            SoundControlFileUtils.setValue(SoundControlSettings.HEADPHONE_GAIN_PATH, gain + " " + gain);
+            SoundControlFileUtils.setValue(SoundControlSettings.MICROPHONE_GAIN_PATH, Settings.Secure.getInt(context.getContentResolver(),
+                    SoundControlSettings.PREF_MICROPHONE_GAIN, 0));
+            SoundControlFileUtils.setValue(SoundControlSettings.SPEAKER_GAIN_PATH, Settings.Secure.getInt(context.getContentResolver(),
+                    SoundControlSettings.PREF_SPEAKER_GAIN, 0));
         }
 
 	//Ambient
