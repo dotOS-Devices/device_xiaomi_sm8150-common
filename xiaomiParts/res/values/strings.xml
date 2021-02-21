@@ -56,7 +56,7 @@
     <string name="dirac_preset_bass_booster">Bass Booster</string>
 
     <!-- QS tile title -->
-    <string name="dirac_qs_tile_title">Dirac sound</string>
+    <string name="dirac_qs_tile_title">Mi Sound Enhancer</string>
 
     <!-- Audio amplification -->
     <string name="audio_title">Audio Amplification</string>
