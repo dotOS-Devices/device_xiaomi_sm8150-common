@@ -72,6 +72,9 @@ ro.telephony.default_network=33,22
 persist.vendor.data.iwlan.enable=true
 persist.vendor.data.mode=concurrent
 
+# Seamless transfer
+sys.fflag.override.settings_seamless_transfer=true
+
 # SSR
 persist.vendor.ssr.restart_level=ALL_ENABLE
 
