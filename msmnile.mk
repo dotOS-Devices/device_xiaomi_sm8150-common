@@ -254,6 +254,14 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/gps/etc/sap.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sap.conf \
     $(LOCAL_PATH)/gps/etc/xtwifi.conf:$(TARGET_COPY_OUT_VENDOR)/etc/xtwifi.conf
 
+# GPS
+PRODUCT_PACKAGES += \
+     android.hardware.gnss@2.1-impl-qti:64 \
+     android.hardware.gnss@2.1-service-qti \
+     libbatching \
+     libgeofencing \
+     libgnss
+
 # Health
 PRODUCT_PACKAGES += \
     android.hardware.health@2.1-impl \
