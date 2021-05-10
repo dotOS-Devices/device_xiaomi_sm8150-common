@@ -1,6 +1,7 @@
 # Allow kernel to search in vendor_debugfs_wlan and vendor_debugfs_ipc
 allow kernel vendor_debugfs_wlan:dir { search };
 allow kernel vendor_debugfs_ipc:dir { search };
+allow kernel mnt_vendor_file:dir { search };
 
 # Allow kernel to create and kill in itself
 allow kernel self:capability { kill };
