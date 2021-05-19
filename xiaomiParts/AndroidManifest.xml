@@ -182,7 +182,8 @@
         <activity
             android:name=".soundcontrol.SoundControlSettingsActivity"
             android:exported="false"
-            android:label="@string/audio_title">
+            android:label="@string/audio_title"
+            android:theme="@style/CustomOptionsTheme">
             <intent-filter>
                 <action android:name="com.android.settings.action.IA_SETTINGS" />
             </intent-filter>
