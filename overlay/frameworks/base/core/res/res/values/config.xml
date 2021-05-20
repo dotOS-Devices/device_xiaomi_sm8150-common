@@ -369,4 +369,9 @@
          fall asleep again as soon as it is awoken.
     -->
     <integer name="config_minimumScreenOffTimeout">7000</integer>
+
+    <!-- Charge sysfs node and value for Adaptive charging -->
+    <string name="config_adaptiveChargingSysfsNode" translatable="false">/sys/class/power_supply/battery/input_suspend</string>
+    <string name="config_adaptiveChargingSuspendValue" translatable="false">1</string>
+    <string name="config_adaptiveChargingResumeValue" translatable="false">0</string>
 </resources>
