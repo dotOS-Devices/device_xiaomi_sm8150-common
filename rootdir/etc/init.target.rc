@@ -135,6 +135,13 @@ on boot
     chown system system /sys/class/drm/card0-DSI-1/doze_backlight
     start rmt_storage
     start rfs_access
+
+    # Thermal
+    chmod 0664 /sys/class/thermal/thermal_message/sconfig
+    chown system system /sys/class/thermal/thermal_message/sconfig
+    chmod 0666 /sys/class/thermal/thermal_message/temp_state
+    chown system system /sys/class/thermal/thermal_message/temp_state
+
     write /dev/cpuset/top-app/cpus 0-3
     write /dev/cpuset/audio-app/cpus 1-2
     write /dev/cpuset/foreground/cpus 0-3
@@ -146,6 +153,8 @@ on boot
     write /dev/cpuset/foreground/boost/cpus 0-7
     write /dev/cpuset/background/cpus 0-7
     write /dev/cpuset/system-background/cpus 0-7
+
+
 
 #Load WLAN driver
     insmod /vendor/lib/modules/wlan.ko
