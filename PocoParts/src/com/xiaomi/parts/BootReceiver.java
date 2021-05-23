@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import androidx.preference.PreferenceManager;
 import android.provider.Settings;
+import android.util.Log;
 
 import com.xiaomi.parts.dirac.DiracUtils;
 import com.xiaomi.parts.kcal.Utils;
@@ -15,6 +16,8 @@ import com.xiaomi.parts.soundcontrol.SoundControlSettings;
 import com.xiaomi.parts.preferences.FileUtils;
 
 public class BootReceiver extends BroadcastReceiver implements Utils {
+
+    private static final String TAG = "PocoParts";
 
     public void onReceive(Context context, Intent intent) {
 
@@ -61,7 +64,11 @@ public class BootReceiver extends BroadcastReceiver implements Utils {
         ThermalUtils.startService(context);
 
         //Dirac
+        try {
         DiracUtils.initialize(context);
+        } catch (Exception e) {
+            Log.d(TAG, "Dirac is not present in system");
+        }
 
         boolean enabled = sharedPrefs.getBoolean(DeviceSettings.PREF_KEY_FPS_INFO, false);
         if (enabled) {
