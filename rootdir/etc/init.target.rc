@@ -241,6 +241,10 @@ on charger
     start vendor.power_off_alarm
     setprop sys.usb.controller a600000.dwc3
     setprop sys.usb.configfs 1
+    chown system system /sys/class/leds/red/brightness
+    chown system system /sys/class/leds/white/brightness
+    write /sys/class/leds/red/brightness 255
+    write /sys/class/leds/white/brightness 255
     start leds-sh
 
 service vendor.spdaemon /vendor/bin/spdaemon
