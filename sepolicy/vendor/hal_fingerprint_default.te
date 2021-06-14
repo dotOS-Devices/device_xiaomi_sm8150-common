@@ -51,3 +51,7 @@ allow hal_fingerprint_default system_data_root_file:dir { read open create };
 allow hal_fingerprint_default system_data_root_file:file { read write open getattr };
 allow hal_fingerprint_default kcal_dev:dir { search };
 allow hal_fingerprint_default kcal_dev:file { read open };
+
+allow hal_fingerprint_default vendor_hal_perf_hwservice:hwservice_manager find;
+
+binder_call(hal_fingerprint_default, vendor_hal_perf_default)
