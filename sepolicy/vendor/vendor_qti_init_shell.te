@@ -9,3 +9,8 @@ set_prop(vendor_qti_init_shell, ctl_start_prop)
 
 # Allow vendor_qti_init_shell to write in sysfs
 allow vendor_qti_init_shell sysfs:file { write };
+
+# allow init.mi.btmac.sh to read hex-encoded mac address and set it
+allow vendor_qti_init_shell vendor_bluetooth_prop:property_service set;
+allow vendor_qti_init_shell vendor_wifi_vendor_data_file:dir search;
+allow vendor_qti_init_shell vendor_wifi_vendor_data_file:file r_file_perms;
