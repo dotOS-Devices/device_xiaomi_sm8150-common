@@ -24,6 +24,7 @@ import androidx.preference.Preference;
 import androidx.preference.PreferenceCategory;
 
 import com.xiaomi.parts.preferences.CustomSeekBarPreference;
+import com.xiaomi.parts.preferences.FileUtils;
 
 import com.xiaomi.parts.R;
 
@@ -60,15 +61,15 @@ public class SoundControlSettings extends PreferenceFragment implements
         final String key = preference.getKey();
         switch (key) {
             case PREF_HEADPHONE_GAIN:
-                SoundControlFileUtils.setValue(HEADPHONE_GAIN_PATH, value + " " + value);
+                FileUtils.setValue(HEADPHONE_GAIN_PATH, value + " " + value);
                 break;
 
             case PREF_MICROPHONE_GAIN:
-                SoundControlFileUtils.setValue(MICROPHONE_GAIN_PATH, (int) value);
+                FileUtils.setValue(MICROPHONE_GAIN_PATH, (int) value);
                 break;
 
             case PREF_SPEAKER_GAIN:
-                 SoundControlFileUtils.setValue(SPEAKER_GAIN_PATH, (int) value);
+                 FileUtils.setValue(SPEAKER_GAIN_PATH, (int) value);
                 break;
             default:
                 break;

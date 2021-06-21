@@ -12,7 +12,7 @@ import com.xiaomi.parts.kcal.Utils;
 import com.xiaomi.parts.ambient.SensorsDozeService;
 import com.xiaomi.parts.thermal.ThermalUtils;
 import com.xiaomi.parts.soundcontrol.SoundControlSettings;
-import com.xiaomi.parts.soundcontrol.SoundControlFileUtils;
+import com.xiaomi.parts.preferences.FileUtils;
 
 public class BootReceiver extends BroadcastReceiver implements Utils {
 
@@ -47,10 +47,10 @@ public class BootReceiver extends BroadcastReceiver implements Utils {
 
         int gain = Settings.Secure.getInt(context.getContentResolver(),
                     SoundControlSettings.PREF_HEADPHONE_GAIN, 4);
-            SoundControlFileUtils.setValue(SoundControlSettings.HEADPHONE_GAIN_PATH, gain + " " + gain);
-            SoundControlFileUtils.setValue(SoundControlSettings.MICROPHONE_GAIN_PATH, Settings.Secure.getInt(context.getContentResolver(),
+            FileUtils.setValue(SoundControlSettings.HEADPHONE_GAIN_PATH, gain + " " + gain);
+            FileUtils.setValue(SoundControlSettings.MICROPHONE_GAIN_PATH, Settings.Secure.getInt(context.getContentResolver(),
                     SoundControlSettings.PREF_MICROPHONE_GAIN, 0));
-            SoundControlFileUtils.setValue(SoundControlSettings.SPEAKER_GAIN_PATH, Settings.Secure.getInt(context.getContentResolver(),
+            FileUtils.setValue(SoundControlSettings.SPEAKER_GAIN_PATH, Settings.Secure.getInt(context.getContentResolver(),
                     SoundControlSettings.PREF_SPEAKER_GAIN, 0));
         }
 

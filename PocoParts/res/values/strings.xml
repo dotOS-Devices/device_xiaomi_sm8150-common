@@ -98,6 +98,8 @@
     <string name="dirac_qs_tile_title">Dirac sound</string>
 
     <!-- Audio amplification -->
+    <string name="audio_title">Audio Amplification</string>
+    <string name="audio_summary">Sound control settings</string>
     <string name="headphone_gain">Headphone gain</string>
     <string name="microphone_gain">Microphone gain</string>
     <string name="speaker_gain">Speaker gain</string>
