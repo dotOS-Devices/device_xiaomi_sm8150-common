@@ -25,6 +25,7 @@ import android.view.KeyEvent;
 import android.media.session.MediaController;
 import android.media.session.MediaSessionManager;
 import android.media.session.PlaybackState;
+import android.util.Log;
 import java.util.List;
 
 public final class DiracUtils {
@@ -34,6 +35,8 @@ public final class DiracUtils {
     private static MediaSessionManager mMediaSessionManager;
     private static Handler mHandler = new Handler();
     private static Context mContext;
+    private static final String TAG = "DiracUtils";
+    private static final boolean DEBUG = true;
 
     public static void initialize(Context context) {
         if (!mInitialized) {
@@ -105,6 +108,7 @@ public final class DiracUtils {
     }
     protected static void setEnabled(boolean enable) {
         mDiracSound.setEnabled(enable);
+        if (DEBUG) Log.d(TAG, "setMusic(" + enable + ")");
         mDiracSound.setMusic(enable ? 1 : 0);
         if (enable){
             refreshPlaybackIfNecessary();
@@ -118,12 +122,14 @@ public final class DiracUtils {
     protected static void setLevel(String preset) {
         String[] level = preset.split("\\s*,\\s*");
 
+        if (DEBUG) Log.d(TAG, "setLevel(" + preset + ")");
         for (int band = 0; band <= level.length - 1; band++) {
             mDiracSound.setLevel(band, Float.valueOf(level[band]));
         }
     }
 
     protected static void setHeadsetType(int paramInt) {
+        if (DEBUG) Log.d(TAG, "setHeadsetType(" + paramInt + ")");
         mDiracSound.setHeadsetType(paramInt);
     }
 }
