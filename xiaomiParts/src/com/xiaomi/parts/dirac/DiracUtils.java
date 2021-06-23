@@ -31,7 +31,6 @@ import java.util.List;
 public final class DiracUtils {
 
     protected static DiracSound mDiracSound;
-    private static boolean mInitialized;
     private static MediaSessionManager mMediaSessionManager;
     private static Handler mHandler = new Handler();
     private static Context mContext;
@@ -39,14 +38,11 @@ public final class DiracUtils {
     private static final boolean DEBUG = true;
 
     public static void initialize(Context context) {
-        if (!mInitialized) {
+        if (mDiracSound == null)
             mContext = context;
             mMediaSessionManager = (MediaSessionManager) context.getSystemService(Context.MEDIA_SESSION_SERVICE);
-            mInitialized = true;
             mContext = context;
             mDiracSound = new DiracSound(0, 0);
-            mInitialized = true;
-        }
     }
 
     protected static void refreshPlaybackIfNecessary(){
