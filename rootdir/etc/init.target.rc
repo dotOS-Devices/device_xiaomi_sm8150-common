@@ -372,6 +372,9 @@ on post-fs-data
     chmod 0777 /sys/module/migt/parameters/fas_power_mod
     restorecon /sys/module/migt/parameters/fas_power_mod
 
+# Change permissions for /dev/diag
+    chmod 0666 /dev/diag
+
 # ZRAM
 on property:vendor.post_boot.parsed=1
     # ZRAM setup
