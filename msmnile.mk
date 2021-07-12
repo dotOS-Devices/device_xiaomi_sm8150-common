@@ -218,6 +218,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.image-dex2oat-cpu-set=0,1,2,3,4,5,6,7 \
     dalvik.vm.image-dex2oat-threads=8
 
+# Device Personalization Services
+PRODUCT_PACKAGES += \
+    MatchmakerPrebuilt
+
 # fastbootd
 ifeq ($(TARGET_USE_DYNAMIC_PARTITIONS),true)
 PRODUCT_PACKAGES += \
