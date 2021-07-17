@@ -12,6 +12,7 @@ import com.xiaomi.parts.dirac.DiracUtils;
 import com.xiaomi.parts.thermal.ThermalUtils;
 import com.xiaomi.parts.soundcontrol.SoundControlSettings;
 import com.xiaomi.parts.preferences.FileUtils;
+import com.xiaomi.parts.touchsampling.TouchSamplingUtils;
 
 public class BootCompletedReceiver extends BroadcastReceiver {
 
@@ -22,6 +23,7 @@ public class BootCompletedReceiver extends BroadcastReceiver {
         if (DEBUG) Log.d(TAG, "Received boot completed intent");
         DiracUtils.initialize(context);
         ThermalUtils.startService(context);
+        TouchSamplingUtils.restoreSamplingValue(context);
 
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
         int gain = Settings.Secure.getInt(context.getContentResolver(),
