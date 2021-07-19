@@ -5,3 +5,10 @@ ro.config.vc_call_vol_steps=7
 # Enable blurs, hidden under dev option
 ro.surface_flinger.supports_background_blur=1
 persist.sys.sf.disable_blurs=1
+
+# App launch prefetching (IORap)
+iorapd.perfetto.enable=true
+iorapd.readahead.enable=true
+persist.device_config.runtime_native_boot.iorap_perfetto_enable=true
+persist.device_config.runtime_native_boot.iorap_readahead_enable=true
+ro.iorapd.enable=true
