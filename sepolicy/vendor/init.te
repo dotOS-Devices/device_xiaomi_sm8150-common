@@ -9,6 +9,5 @@ allow init proc_last_kmsg:file {
 };
 
 allow init hwservicemanager:binder { call  transfer };
-allow init sysfs:file { open  read };
-allow init vendor_file:file { execute  execute_no_trans };
+allow init vendor_file:file { execute };
 allow init vendor_sysfs_iio:file { open  read };

@@ -2,9 +2,7 @@ allow vendor_qti_init_shell configfs:dir rw_dir_perms;
 allow vendor_qti_init_shell configfs:file create_file_perms;
 allow vendor_qti_init_shell ctl_stop_prop:property_service set;
 allow vendor_qti_init_shell sysfs_wakeup:file setattr;
-allow vendor_qti_init_shell vendor_qti_init_shell:capability { kill };
-allow vendor_qti_init_shell exported_system_radio_prop:property_service { set };
-allow vendor_qti_init_shell exported_system_radio_prop:file { getattr map read open };
-allow vendor_qti_init_shell default_prop:file { getattr  map  open  read };
+allow vendor_qti_init_shell proc_page_cluster : file {write open};
 
 set_prop(vendor_qti_init_shell, vendor_displayfeature_prop)
+set_prop(vendor_qti_init_shell, ctl_start_prop)
