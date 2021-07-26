@@ -45,7 +45,6 @@ allow hal_fingerprint_default goodix_fingerprint_data_file:file create_file_perm
 set_prop(hal_fingerprint_default, vendor_fp_prop)
 
 allow hal_fingerprint_default vendor_sysfs_spss:dir { search };
-allow hal_fingerprint_default sysfs:file { write getattr };
 allow hal_fingerprint_default vendor_sysfs_spss:file { open read };
 allow hal_fingerprint_default rootfs:dir { read open };
 allow hal_fingerprint_default system_data_root_file:dir { read open create };
