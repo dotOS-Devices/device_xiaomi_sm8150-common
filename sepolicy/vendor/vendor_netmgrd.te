@@ -1,0 +1,2 @@
+# Allow vendor_netmgrd to read, write, open, and contol IO in vendor_diag_device
+allow vendor_netmgrd vendor_diag_device:chr_file { ioctl open read write };

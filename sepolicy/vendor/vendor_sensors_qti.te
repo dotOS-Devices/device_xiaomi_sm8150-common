@@ -1,0 +1,5 @@
+# Allow vendor_sensors_qti to read, write, open, and control IO in vendor_diag_device
+allow vendor_sensors_qti vendor_diag_device:chr_file { ioctl open read write };
+
+# Allow vendor_sensors to read and search sysfs_project_info
+allow vendor_sensors sysfs_project_info:dir { read search };

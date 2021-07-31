@@ -1,0 +1,2 @@
+# Allow vendor_hal_imsrtp to read, write, open, and control IO in vendor_diag_device
+allow vendor_hal_imsrtp vendor_diag_device:chr_file { ioctl open read write };

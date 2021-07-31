@@ -14,3 +14,9 @@ allow hal_audio_default vendor_data_file:dir { create write add_name };
 allow hal_audio_default vendor_data_file:file { create rw_file_perms };
 get_prop(hal_audio_default, dirac_prop)
 set_prop(hal_audio_default, dirac_prop)
+
+# Allow hal_audio_default to read, write, open, and control IO in vendor_diag_device
+allow hal_audio_default vendor_diag_device:chr_file { read write open ioctl };
+
+# Allow hal_audio_default to read and open in sysfs
+allow hal_audio_default sysfs:dir { read open };

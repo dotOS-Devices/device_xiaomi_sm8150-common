@@ -11,3 +11,7 @@ allow init proc_last_kmsg:file {
 allow init hwservicemanager:binder { call  transfer };
 allow init vendor_file:file { execute };
 allow init vendor_sysfs_iio:file { open  read };
+allow init proc_last_kmsg:file r_file_perms;
+allow init proc_last_kmsg:file { setattr };
+allow init iorapd_data_file:file getattr;
+allow init hal_fingerprint_default:process { ptrace };
