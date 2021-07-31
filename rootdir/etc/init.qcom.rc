@@ -1107,11 +1107,11 @@ on property:vendor.post_boot.parsed=1
     write /dev/stune/top-app/schedtune.sched_boost 15
 
     # Setup schedutil ratelimits
-    write /sys/devices/system/cpu/cpu0/cpufreq/schedutil/up_rate_limit_us 500
-    write /sys/devices/system/cpu/cpu0/cpufreq/schedutil/down_rate_limit_us 20000
-    write /sys/devices/system/cpu/cpu6/cpufreq/schedutil/up_rate_limit_us 500
-    write /sys/devices/system/cpu/cpu6/cpufreq/schedutil/down_rate_limit_us 20000
+    write /sys/devices/system/cpu/cpu0/cpufreq/schedutil/up_rate_limit_us 4000
+    write /sys/devices/system/cpu/cpu0/cpufreq/schedutil/down_rate_limit_us 16000
+    write /sys/devices/system/cpu/cpu4/cpufreq/schedutil/up_rate_limit_us 4000
+    write /sys/devices/system/cpu/cpu4/cpufreq/schedutil/down_rate_limit_us 16000
 
     # Enable schedutil predicted-load boosting
     write /sys/devices/system/cpu/cpu0/cpufreq/schedutil/pl 1
-    write /sys/devices/system/cpu/cpu6/cpufreq/schedutil/pl 1
+    write /sys/devices/system/cpu/cpu4/cpufreq/schedutil/pl 1
