@@ -40,7 +40,7 @@
             android:name=".thermal.ThermalActivity"
             android:label="@string/thermal_title"
             android:icon="@drawable/ic_thermal_settings"
-            android:theme="@style/CustomOptionsTheme">
+            android:theme="@style/Theme.Main">
             <intent-filter>
                 <action android:name="com.android.settings.action.IA_SETTINGS" />
             </intent-filter>
@@ -73,7 +73,7 @@
 
         <activity
             android:name=".kcal.KcalSettingsActivity"
-            android:theme="@style/CustomOptionsTheme"
+            android:theme="@style/Theme.Main"
             android:label="@string/advanced_settings_kcal">
             <intent-filter>
                 <action android:name="com.android.settings.action.IA_SETTINGS" />
@@ -95,7 +95,7 @@
         <activity
             android:name=".display.LcdFeaturesPreferenceActivity"
             android:label="@string/lcd_features_title"
-            android:theme="@style/CustomOptionsTheme">
+            android:theme="@style/Theme.Main">
             <intent-filter>
                 <action android:name="com.android.settings.action.IA_SETTINGS" />
             </intent-filter>
@@ -124,7 +124,7 @@
         <activity
             android:name=".speaker.ClearSpeakerActivity" 
             android:label="@string/clear_speaker_title"
-            android:theme="@style/CustomOptionsTheme">
+            android:theme="@style/Theme.Main">
             <intent-filter>
                 <action android:name="com.android.settings.action.IA_SETTINGS" />
             </intent-filter>
@@ -158,7 +158,7 @@
         <activity
             android:name=".dirac.DiracActivity"
             android:label="@string/dirac_title"
-            android:theme="@style/CustomOptionsTheme">
+            android:theme="@style/Theme.Main">
             <intent-filter>
                 <action android:name="com.android.settings.action.IA_SETTINGS" />
                 <action android:name="android.service.quicksettings.action.QS_TILE_PREFERENCES" />
@@ -183,7 +183,7 @@
             android:name=".soundcontrol.SoundControlSettingsActivity"
             android:exported="false"
             android:label="@string/audio_title"
-            android:theme="@style/CustomOptionsTheme">
+            android:theme="@style/Theme.Main">
             <intent-filter>
                 <action android:name="com.android.settings.action.IA_SETTINGS" />
             </intent-filter>
@@ -196,7 +196,7 @@
         <activity
             android:name=".touchsampling.TouchSamplingSettingsActivity"
             android:label="@string/htsr_enable_title"
-            android:theme="@style/CustomOptionsTheme">
+            android:theme="@style/Theme.Main">
             <intent-filter>
                 <action android:name="com.android.settings.action.IA_SETTINGS" />
             </intent-filter>
