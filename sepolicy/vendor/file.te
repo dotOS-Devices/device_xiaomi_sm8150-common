@@ -36,6 +36,10 @@ type sysfs_project_info, sysfs_type, fs_type;
 
 type wifi_nv_data_file, file_type, data_file_type;
 
+type perfd_socket, file_type;
+
+type sysfs_soc, sysfs_type, fs_type;
+
 # XiaomiParts
 type sysfs_hgain, sysfs_type, fs_type;
 type sysfs_mgain, sysfs_type, fs_type;
