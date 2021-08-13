@@ -402,6 +402,7 @@ PRODUCT_PACKAGES += \
     fstab.zram \
     init.nfc.rc \
     init.xiaomiParts.rc \
+    init.performance_level.rc \
     init.qcom.rc \
     init.qcom.usb.rc \
     init.recovery.qcom.rc \
