@@ -4,8 +4,10 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
+ifeq ($(TARGET_USE_DYNAMIC_PARTITIONS),true)
 PRODUCT_BUILD_SUPER_PARTITION := false
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
+endif
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
@@ -217,8 +219,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.image-dex2oat-threads=8
 
 # fastbootd
+ifeq ($(TARGET_USE_DYNAMIC_PARTITIONS),true)
 PRODUCT_PACKAGES += \
     fastbootd
+endif
 
 # Fingerprint
 PRODUCT_PACKAGES += \
@@ -400,8 +404,10 @@ PRODUCT_PACKAGES += \
     init.target.rc \
     ueventd.qcom.rc
 
+ifeq ($(TARGET_USE_DYNAMIC_PARTITIONS),true)
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/etc/fstab.qcom:$(TARGET_COPY_OUT_RAMDISK)/fstab.qcom
+    $(LOCAL_PATH)/rootdir/etc/fstab_dynamic.qcom:$(TARGET_COPY_OUT_RAMDISK)/fstab.qcom
+endif
 
 # Sensors
 PRODUCT_PACKAGES += \
