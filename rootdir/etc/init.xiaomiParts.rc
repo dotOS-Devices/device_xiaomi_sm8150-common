@@ -7,3 +7,9 @@ on property:sys.boot_completed=1
   chmod 0660 /sys/kernel/sound_control/headphone_gain
   chmod 0660 /sys/kernel/sound_control/mic_gain
   chmod 0660 /sys/kernel/sound_control/speaker_gain
+
+on property:persist.deviceparts.lcd.hbm=*
+    write /sys/devices/platform/soc/soc:qcom,dsi-display-primary/hbm ${persist.deviceparts.lcd.hbm}
+
+on property:persist.deviceparts.lcd.cabc=*
+    write /sys/devices/platform/soc/soc:qcom,dsi-display-primary/cabc ${persist.deviceparts.lcd.cabc}
