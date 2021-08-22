@@ -352,9 +352,9 @@ PRODUCT_SOONG_NAMESPACES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/public.libraries.txt:$(TARGET_COPY_OUT_VENDOR)/etc/public.libraries.txt
 
-# PocoParts
+# XiaomiParts
 PRODUCT_PACKAGES += \
-    PocoParts
+    xiaomiParts
 
 # QMI
 PRODUCT_PACKAGES += \
@@ -388,7 +388,7 @@ PRODUCT_PACKAGES += \
     fstab.qcom \
     fstab.zram \
     init.nfc.rc \
-    init.pocoparts.rc \
+    init.xiaomiParts.rc \
     init.qcom.rc \
     init.qcom.usb.rc \
     init.recovery.qcom.rc \

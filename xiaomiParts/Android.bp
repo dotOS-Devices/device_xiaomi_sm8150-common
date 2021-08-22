@@ -5,7 +5,7 @@
 //
 
 android_app {
-    name: "PocoParts",
+    name: "xiaomiParts",
     defaults: [
         "SettingsLibDefaults",
     ],
