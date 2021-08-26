@@ -423,6 +423,7 @@ PRODUCT_PACKAGES += \
     init.nfc.rc \
     init.xiaomiParts.rc \
     init.performance_level.rc \
+    init.qcom.power.rc \
     init.qcom.rc \
     init.qcom.usb.rc \
     init.recovery.qcom.rc \
