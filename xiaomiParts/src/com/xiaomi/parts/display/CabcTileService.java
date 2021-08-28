@@ -24,6 +24,7 @@ import android.service.quicksettings.TileService;
 import java.util.Arrays;
 
 import com.xiaomi.parts.R;
+import com.xiaomi.parts.utils.FileUtils;
 
 public class CabcTileService extends TileService {
 
@@ -57,6 +58,12 @@ public class CabcTileService extends TileService {
     public void onStartListening() {
         super.onStartListening();
         tile = getQsTile();
+        if (!FileUtils.fileExists(LcdFeaturesPreferenceFragment.CABC_NODE)) {
+            tile.setState(Tile.STATE_UNAVAILABLE);
+            tile.setSubtitle(getResources().getString(R.string.kernel_not_supported));
+            tile.updateTile();
+            return;
+        }
         updateCurrentCabcMode();
         updateCabcTile();
     }
