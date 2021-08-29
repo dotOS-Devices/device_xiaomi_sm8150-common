@@ -10,7 +10,6 @@ import androidx.viewpager.widget.ViewPager;
 import com.xiaomi.parts.R;
 import com.xiaomi.parts.preferences.SecureSettingSeekBarPreference;
 import com.xiaomi.parts.preferences.SecureSettingSwitchPreference;
-import com.xiaomi.parts.Controller;
 
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,14 +18,13 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 public class KcalSettings extends PreferenceFragment implements
-        Preference.OnPreferenceChangeListener, Controller {
+        Preference.OnPreferenceChangeListener {
 
     ViewPager viewPager;
     LinearLayout DotsKcal;
     private int dotscount;
     private ImageView[] dots;
-
-    private final FileUtils mFileUtils = new FileUtils();
+    private KcalUtils mKcalUtils;
 
     private SecureSettingSwitchPreference mEnabled;
     private SecureSettingSwitchPreference mSetOnBoot;
@@ -44,43 +42,38 @@ public class KcalSettings extends PreferenceFragment implements
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         setPreferencesFromResource(R.xml.kcal_preferences, rootKey);
 
-        boolean enabled = Settings.Secure.getInt(getContext().getContentResolver(), PREF_ENABLED,
-                0) == 1;
+        mKcalUtils = new KcalUtils(getContext());
 
-        mEnabled = (SecureSettingSwitchPreference) findPreference(PREF_ENABLED);
+        mEnabled = (SecureSettingSwitchPreference) findPreference(KcalUtils.PREF_ENABLED);
         mEnabled.setOnPreferenceChangeListener(this);
-        mEnabled.setTitle(enabled ? R.string.kcal_enabled : R.string.kcal_disabled);
+        mEnabled.setTitle(mKcalUtils.getInt(KcalUtils.PREF_ENABLED, 0) == 1 ? R.string.kcal_enabled : R.string.kcal_disabled);
 
-        mSetOnBoot = (SecureSettingSwitchPreference) findPreference(PREF_SETONBOOT);
-        mSetOnBoot.setOnPreferenceChangeListener(this);
-
-        mMin = (SecureSettingSeekBarPreference) findPreference(PREF_MINIMUM);
+        mMin = (SecureSettingSeekBarPreference) findPreference(KcalUtils.PREF_MINIMUM);
         mMin.setOnPreferenceChangeListener(this);
 
-        mRed = (SecureSettingSeekBarPreference) findPreference(PREF_RED);
+        mRed = (SecureSettingSeekBarPreference) findPreference(KcalUtils.PREF_RED);
         mRed.setOnPreferenceChangeListener(this);
 
-        mGreen = (SecureSettingSeekBarPreference) findPreference(PREF_GREEN);
+        mGreen = (SecureSettingSeekBarPreference) findPreference(KcalUtils.PREF_GREEN);
         mGreen.setOnPreferenceChangeListener(this);
 
-        mBlue = (SecureSettingSeekBarPreference) findPreference(PREF_BLUE);
+        mBlue = (SecureSettingSeekBarPreference) findPreference(KcalUtils.PREF_BLUE);
         mBlue.setOnPreferenceChangeListener(this);
 
-        mSaturation = (SecureSettingSeekBarPreference) findPreference(PREF_SATURATION);
-        mSaturation.setEnabled((Settings.Secure.getInt(getContext().getContentResolver(),
-                PREF_GRAYSCALE, 0) == 0));
+        mSaturation = (SecureSettingSeekBarPreference) findPreference(KcalUtils.PREF_SATURATION);
+        mSaturation.setEnabled(mKcalUtils.getInt(KcalUtils.PREF_GRAYSCALE, 0) == 0);
         mSaturation.setOnPreferenceChangeListener(this);
 
-        mValue = (SecureSettingSeekBarPreference) findPreference(PREF_VALUE);
+        mValue = (SecureSettingSeekBarPreference) findPreference(KcalUtils.PREF_VALUE);
         mValue.setOnPreferenceChangeListener(this);
 
-        mContrast = (SecureSettingSeekBarPreference) findPreference(PREF_CONTRAST);
+        mContrast = (SecureSettingSeekBarPreference) findPreference(KcalUtils.PREF_CONTRAST);
         mContrast.setOnPreferenceChangeListener(this);
 
-        mHue = (SecureSettingSeekBarPreference) findPreference(PREF_HUE);
+        mHue = (SecureSettingSeekBarPreference) findPreference(KcalUtils.PREF_HUE);
         mHue.setOnPreferenceChangeListener(this);
 
-        mGrayscale = (SecureSettingSwitchPreference) findPreference(PREF_GRAYSCALE);
+        mGrayscale = (SecureSettingSwitchPreference) findPreference(KcalUtils.PREF_GRAYSCALE);
         mGrayscale.setOnPreferenceChangeListener(this);
     }
 
@@ -141,60 +134,45 @@ public class KcalSettings extends PreferenceFragment implements
     @Override
     public boolean onPreferenceChange(Preference preference, Object value) {
         final String key = preference.getKey();
-
-        String rgbString;
+        String rgb = null;
 
         switch (key) {
-            case PREF_ENABLED:
-                mFileUtils.setValue(KCAL_ENABLE, (boolean) value);
+            case KcalUtils.PREF_ENABLED:
                 mEnabled.setTitle((boolean) value ? R.string.kcal_enabled : R.string.kcal_disabled);
                 break;
-
-            case PREF_MINIMUM:
-                mFileUtils.setValue(KCAL_MIN, (int) value);
+            case KcalUtils.PREF_RED:
+                rgb = value + " " + mGreen.getValue() + " " + mBlue.getValue();
                 break;
-
-            case PREF_RED:
-                rgbString = value + " " + mGreen.getValue() + " " + mBlue.getValue();
-                mFileUtils.setValue(KCAL_RGB, rgbString);
+            case KcalUtils.PREF_GREEN:
+                rgb = mRed.getValue() + " " + value + " " + mBlue.getValue();
                 break;
-
-            case PREF_GREEN:
-                rgbString = mRed.getValue() + " " + value + " " + mBlue.getValue();
-                mFileUtils.setValue(KCAL_RGB, rgbString);
+            case KcalUtils.PREF_BLUE:
+                rgb = mRed.getValue() + " " + mGreen.getValue() + " " + value;
                 break;
-
-            case PREF_BLUE:
-                rgbString = mRed.getValue() + " " + mGreen.getValue() + " " + value;
-                mFileUtils.setValue(KCAL_RGB, rgbString);
-                break;
-
-            case PREF_SATURATION:
-                if (!(Settings.Secure.getInt(getContext().getContentResolver(), PREF_GRAYSCALE, 0) == 1)) {
-                    mFileUtils.setValue(KCAL_SAT, (int) value + SATURATION_OFFSET);
-                }
-                break;
-
-            case PREF_VALUE:
-                mFileUtils.setValue(KCAL_VAL, (int) value + VALUE_OFFSET);
-                break;
-
-            case PREF_CONTRAST:
-                mFileUtils.setValue(KCAL_CONT, (int) value + CONTRAST_OFFSET);
-                break;
-
-            case PREF_HUE:
-                mFileUtils.setValue(KCAL_HUE, (int) value);
-                break;
-
-            case PREF_GRAYSCALE:
-                setmGrayscale((boolean) value);
-                break;
-
+            case KcalUtils.PREF_GRAYSCALE:
+                setGrayscale((boolean) value);
+                // setGrayscale already set kcal data
+                return true;
             default:
                 break;
         }
+
+        if (key.contains("kcal")) {
+            mKcalUtils.setKcalData(key, rgb != null ? rgb : value);
+        }
         return true;
+    }
+
+    void resetKcalData() {
+        applyValues(KcalUtils.DEFAULT_RED + " " +
+                    KcalUtils.DEFAULT_GREEN + " " +
+                    KcalUtils.DEFAULT_BLUE + " " +
+                    KcalUtils.DEFAULT_MINIMUM + " " +
+                    KcalUtils.DEFAULT_SATURATION + " " +
+                    KcalUtils.DEFAULT_VALUE + " " +
+                    KcalUtils.DEFAULT_CONTRAST + " " +
+                    KcalUtils.DEFAULT_HUE);
+        setGrayscale(false);
     }
 
     void applyValues(String preset) {
@@ -218,15 +196,9 @@ public class KcalSettings extends PreferenceFragment implements
         mHue.refresh(hue);
     }
 
-    void setmSetOnBoot(boolean checked) {
-        mSetOnBoot.setChecked(checked);
-    }
-
-    void setmGrayscale(boolean checked) {
+    void setGrayscale(boolean checked) {
         mGrayscale.setChecked(checked);
         mSaturation.setEnabled(!checked);
-        mFileUtils.setValue(KCAL_SAT, checked ? 128 :
-                Settings.Secure.getInt(getContext().getContentResolver(), PREF_SATURATION,
-                        SATURATION_DEFAULT) + SATURATION_OFFSET);
+        mKcalUtils.setKcalData(KcalUtils.PREF_GRAYSCALE, false);
     }
 }

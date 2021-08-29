@@ -1,0 +1,6 @@
+type xiaomiparts_app, domain;
+app_domain(xiaomiparts_app)
+
+# kcal
+allow xiaomiparts_app sysfs_kcal:dir search;
+allow xiaomiparts_app sysfs_kcal:file rw_file_perms;

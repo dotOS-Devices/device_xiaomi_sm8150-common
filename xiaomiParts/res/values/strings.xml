@@ -27,16 +27,15 @@
 
     <string name="kcal_enabled">On</string>
     <string name="kcal_disabled">Off</string>
-    <string name="set_on_boot">Set On Boot</string>
-    <string name="color_red">Red</string>
-    <string name="color_green">Green</string>
-    <string name="color_blue">Blue</string>
-    <string name="color_minimum">Minimum</string>
-    <string name="saturation">Saturation</string>
-    <string name="value">Value</string>
-    <string name="contrast">Contrast</string>
-    <string name="hue">Hue</string>
-    <string name="grayscale">Grayscale Display</string>
+    <string name="kcal_color_red">Red</string>
+    <string name="kcal_color_green">Green</string>
+    <string name="kcal_color_blue">Blue</string>
+    <string name="kcal_color_minimum">Minimum</string>
+    <string name="kcal_saturation">Saturation</string>
+    <string name="kcal_value">Value</string>
+    <string name="kcal_contrast">Contrast</string>
+    <string name="kcal_hue">Hue</string>
+    <string name="kcal_grayscale">Grayscale Display</string>
 
     <string name="presets_dialog_title">Select Preset</string>
 

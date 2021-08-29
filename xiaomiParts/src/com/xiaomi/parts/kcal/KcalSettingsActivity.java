@@ -8,9 +8,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import com.xiaomi.parts.R;
-import com.xiaomi.parts.Controller;
 
-public class KcalSettingsActivity extends Activity implements Controller {
+public class KcalSettingsActivity extends Activity {
 
     private KcalSettings mKcalSettingsFragment;
 
@@ -35,25 +34,13 @@ public class KcalSettingsActivity extends Activity implements Controller {
             case android.R.id.home:
                 finish();
                 return true;
-
             case R.id.action_reset:
-                mKcalSettingsFragment.applyValues(RED_DEFAULT + " " +
-                        GREEN_DEFAULT + " " +
-                        BLUE_DEFAULT + " " +
-                        MINIMUM_DEFAULT + " " +
-                        SATURATION_DEFAULT + " " +
-                        VALUE_DEFAULT + " " +
-                        CONTRAST_DEFAULT + " " +
-                        HUE_DEFAULT);
-                mKcalSettingsFragment.setmGrayscale(GRAYSCALE_DEFAULT);
-                mKcalSettingsFragment.setmSetOnBoot(SETONBOOT_DEFAULT);
+                mKcalSettingsFragment.resetKcalData();
                 return true;
-
             case R.id.action_preset:
                 new PresetDialog().show(getFragmentManager(),
                         KcalSettingsActivity.class.getName(), mKcalSettingsFragment);
                 return true;
-
             default:
                 break;
         }
