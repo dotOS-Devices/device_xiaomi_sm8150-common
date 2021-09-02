@@ -11,7 +11,6 @@ import android.util.Log;
 import com.xiaomi.parts.dirac.DiracUtils;
 import com.xiaomi.parts.thermal.ThermalUtils;
 import com.xiaomi.parts.soundcontrol.SoundControlSettings;
-import com.xiaomi.parts.preferences.FileUtils;
 import com.xiaomi.parts.touchsampling.TouchSamplingUtils;
 
 public class BootCompletedReceiver extends BroadcastReceiver {

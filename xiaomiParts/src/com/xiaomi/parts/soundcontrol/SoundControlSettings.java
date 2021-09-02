@@ -24,7 +24,7 @@ import androidx.preference.Preference;
 import androidx.preference.PreferenceCategory;
 
 import com.xiaomi.parts.preferences.CustomSeekBarPreference;
-import com.xiaomi.parts.preferences.FileUtils;
+import com.xiaomi.parts.FileUtils;
 
 import com.xiaomi.parts.R;
 
