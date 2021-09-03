@@ -16,3 +16,4 @@ ro.miui.                u:object_r:exported_system_prop:s0
 
 # Device Parts
 persist.deviceparts.                   u:object_r:deviceparts_prop:s0
+persist.deviceparts.lcd.cabc.          u:object_r:deviceparts_prop:s0
