@@ -17,9 +17,9 @@
 package com.xiaomi.parts.display;
 
 import android.os.Bundle;
-import android.preference.PreferenceActivity;
+import com.xiaomi.parts.MonetPreferenceActivity;
 
-public class LcdFeaturesPreferenceActivity extends PreferenceActivity {
+public class LcdFeaturesPreferenceActivity extends MonetPreferenceActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

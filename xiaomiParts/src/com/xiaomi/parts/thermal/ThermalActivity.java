@@ -17,11 +17,11 @@
 package com.xiaomi.parts.thermal;
 
 import android.os.Bundle;
-import android.preference.PreferenceActivity;
+import com.xiaomi.parts.MonetPreferenceActivity;
 
 import com.xiaomi.parts.utils.FileUtils;
 
-public class ThermalActivity extends PreferenceActivity {
+public class ThermalActivity extends MonetPreferenceActivity {
 
     private static final String TAG_THERMAL = "thermal";
     private static final String THERMAL_SCONFIG = "/sys/class/thermal/thermal_message/sconfig";

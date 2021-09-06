@@ -17,9 +17,9 @@
 package com.xiaomi.parts.dirac;
 
 import android.os.Bundle;
-import android.preference.PreferenceActivity;
+import com.xiaomi.parts.MonetPreferenceActivity;
 
-public class DiracActivity extends PreferenceActivity {
+public class DiracActivity extends MonetPreferenceActivity {
 
     private static final String TAG_DIRAC = "dirac";
 

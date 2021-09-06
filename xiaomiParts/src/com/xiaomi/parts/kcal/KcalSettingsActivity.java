@@ -1,6 +1,5 @@
 package com.xiaomi.parts.kcal;
 
-import android.app.Activity;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.view.Menu;
@@ -8,8 +7,9 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import com.xiaomi.parts.R;
+import com.xiaomi.parts.MonetPreferenceActivity;
 
-public class KcalSettingsActivity extends Activity {
+public class KcalSettingsActivity extends MonetPreferenceActivity {
 
     private KcalSettings mKcalSettingsFragment;
 

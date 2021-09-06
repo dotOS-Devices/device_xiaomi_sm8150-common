@@ -18,9 +18,9 @@
 package com.xiaomi.parts.touchsampling;
 
 import android.os.Bundle;
-import android.preference.PreferenceActivity;
+import com.xiaomi.parts.MonetPreferenceActivity;
 
-public class TouchSamplingSettingsActivity extends PreferenceActivity {
+public class TouchSamplingSettingsActivity extends MonetPreferenceActivity {
 
     private static final String TAG_HTSR = "touchsampling";
 
