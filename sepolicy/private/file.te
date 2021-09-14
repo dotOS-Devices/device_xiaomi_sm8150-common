@@ -2,3 +2,5 @@ type sysfs_htsr, sysfs_type, fs_type;
 
 # Kcal
 type sysfs_kcal, sysfs_type, fs_type;
+
+type sysfs_lcd_feature, sysfs_type, fs_type;

@@ -3,3 +3,6 @@ hal_client_domain(system_app, hal_mlipay)
 # Kcal
 allow system_app sysfs_kcal:dir search;
 allow system_app sysfs_kcal:file rw_file_perms;
+
+# LCD HBM and CABC
+set_prop(system_app, persist_lcd_prop)

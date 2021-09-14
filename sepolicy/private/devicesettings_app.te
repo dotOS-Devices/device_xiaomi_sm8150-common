@@ -31,9 +31,6 @@ allow devicesettings_app sysfs_kcal:file rw_file_perms;
 allow devicesettings_app sysfs_leds:dir search;
 #allow devicesettings_app vendor_sysfs_graphics:dir search;
 
-get_prop(devicesettings_app, deviceparts_prop)
-set_prop(devicesettings_app, deviceparts_prop)
-
 allow devicesettings_app {
   cgroup
   sysfs_leds

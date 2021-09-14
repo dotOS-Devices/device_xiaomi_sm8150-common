@@ -1,2 +1,2 @@
 # DeviceParts
-persist.deviceparts.lcd.cabc=1
+persist.lcd.cabc_mode=1
